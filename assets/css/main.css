@@ -1,0 +1,170 @@
+/* ============================================================
+   main.css — Estilos globales: variables, reset, tipografía
+   Proyecto: Lo que quedó en los nombres
+   ============================================================ */
+
+/* ── Variables CSS ── */
+:root {
+  /* Fondo y texto */
+  --color-fondo:        #FDF6E3;
+  --color-fondo-alt:    #F0E6C8;
+  --color-texto:        #2C1810;
+  --color-texto-suave:  #6B4226;
+
+  /* Acentos */
+  --color-acento:       #C0392B;
+  --color-acento-hover: #96281B;
+  --color-acento-alt:   #E67E22;
+  --color-verde:        #27AE60;
+  --color-borde:        #D4A574;
+
+  /* Categorías de puntos en el mapa */
+  --cat-acto:           #C0392B;
+  --cat-nombre:         #2980B9;
+  --cat-operativo:      #27AE60;
+  --cat-homenaje:       #8B6914;
+  --cat-represion:      #6C3483;
+
+  /* UI */
+  --sombra-suave:  0 4px 20px rgba(44,24,16,0.12);
+  --sombra-fuerte: 0 8px 32px rgba(44,24,16,0.25);
+  --radio:         8px;
+  --transicion:    all 0.25s ease;
+
+  /* Layout mapa */
+  --header-h:   64px;
+  --filtros-h:  56px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Tipografía global ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-texto);
+}
+
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--color-acento);
+  text-decoration: none;
+  transition: var(--transicion);
+}
+
+a:hover {
+  color: var(--color-acento-hover);
+  text-decoration: underline;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* ── Botones globales ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.65em 1.4em;
+  border-radius: var(--radio);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--transicion);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primario {
+  background-color: var(--color-acento);
+  color: #fff;
+  border-color: var(--color-acento);
+}
+
+.btn-primario:hover {
+  background-color: var(--color-acento-hover);
+  border-color: var(--color-acento-hover);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--sombra-suave);
+}
+
+.btn-secundario {
+  background-color: transparent;
+  color: var(--color-acento);
+  border-color: var(--color-acento);
+}
+
+.btn-secundario:hover {
+  background-color: var(--color-acento);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ── Utilidades ── */
+.texto-suave {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+}
+
+.texto-pequeño {
+  font-size: 0.82rem;
+  color: var(--color-texto-suave);
+}
+
+/* ── Scrollbar personalizada ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-fondo-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-borde);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-texto-suave);
+}

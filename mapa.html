@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa interactivo — Lo que quedó en los nombres · Formosa 1976–1983</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/mapa.css" />
+</head>
+<body>
+
+  <!-- ── HEADER FIJO ── -->
+  <header class="header-mapa">
+    <span class="header-titulo">
+      <span>Lo que quedó</span> en los nombres
+    </span>
+    <span class="header-contador" id="contador-texto">
+      Explorados: <strong>0</strong> / 9
+    </span>
+    <a href="index.html" class="btn-volver">← Inicio</a>
+  </header>
+
+  <!-- ── BARRA DE FILTROS ── -->
+  <div class="filtros-bar" role="toolbar" aria-label="Filtrar por categoría">
+    <button class="filtro-btn activo" data-cat="todos">Todos</button>
+    <button class="filtro-btn" data-cat="1">🔴 Actos patrios</button>
+    <button class="filtro-btn" data-cat="2">🔵 Cambio de nombres</button>
+    <button class="filtro-btn" data-cat="3">🟢 Operativos culturales</button>
+    <button class="filtro-btn" data-cat="4">🟤 Homenajes militares</button>
+    <button class="filtro-btn" data-cat="5">🟣 Represión directa</button>
+  </div>
+
+  <!-- ── LAYOUT PRINCIPAL ── -->
+  <div class="layout-mapa">
+
+    <!-- Mapa Leaflet -->
+    <div id="map-container" role="main" aria-label="Mapa interactivo de Formosa"></div>
+
+    <!-- Panel lateral -->
+    <aside id="panel-lateral" aria-label="Información del punto seleccionado">
+
+      <!-- Estado vacío -->
+      <div class="panel-vacio" id="panel-vacio">
+        <span class="panel-vacio-icono">📍</span>
+        <h3>Hacé clic en un punto del mapa</h3>
+        <p>Cada punto marca un lugar donde la dictadura dejó una huella en Formosa entre 1976 y 1983</p>
+      </div>
+
+      <!-- Contenido dinámico -->
+      <div class="panel-contenido" id="panel-contenido">
+        <!-- Se rellena con JS al seleccionar un punto -->
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ── MODAL DE CONCLUSIÓN ── -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <div class="modal-caja">
+      <h2 class="modal-titulo" id="modal-titulo">Recorriste todos los puntos</h2>
+      <p class="modal-subtitulo">9 de 9 lugares explorados · Formosa, 1976–1983</p>
+      <div class="modal-cuerpo">
+        <p>Lo que viste en este mapa no son hechos aislados: son piezas de una estrategia. La dictadura cívico-militar en Formosa no solo reprimió con violencia — también construyó un relato del territorio, nombrando a sus muertos en los mapas, militarizando las celebraciones patrias, enviando artistas y marchas patrióticas a las escuelas de frontera, y persiguiendo a quienes reclamaban tierras y derechos.</p>
+        <p>Formosa fue un "laboratorio" de ese proceso por su condición de provincia de frontera. Por eso los operativos, los decretos, los desfiles y los homenajes fueron aquí tan intensos y sistemáticos.</p>
+        <p>Los nombres de los lugares, los actos cívicos y las celebraciones no son neutrales: tienen historia, tienen autores y tienen víctimas. Reconocerlos es una forma de leer críticamente la historia local, más allá del relato oficial.</p>
+        <p class="modal-fuente">Basado en: Núñez (2025), Leguizamón (2015, 2016), Torina (2014) y Alucín (2022).</p>
+      </div>
+      <div class="modal-acciones">
+        <button class="btn btn-primario" onclick="cerrarModal()">Seguir explorando</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCRIPTS ── -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/js/datos.js"></script>
+  <script src="assets/js/mapa.js"></script>
+
+</body>
+</html>
